@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CRUD-BOX³</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        table {
+            border-collapse: separate;
+            border-spacing: 5px; 
+        }
+
+        *{
+    	padding: 0;
+    	margin: 0;
+    	box-sizing: border-box;
+}
+    </style>
+</head>
+<body class="d-flex flex-column align-items-center justify-content-center">
+	<header class="text-center py-2 bg-primary w-100">
+			<h1 class="text-white">CRUD - Contatos</h1>
+	</header>
+	<main class="d-flex flex-column align-items-center shadow p-5 m-2" style="height: 70vh;width: 90%;">
+		<table class="w-100" id="table">
+			<thead>
+			<tr>
+				<th class="px-4 bg-secondary text-white fs-3">Nome</th>
+				<th class="px-4 bg-secondary text-white fs-3">Telefone</th>
+				<th class="px-4 bg-secondary text-white fs-3">Email</th>
+				<th class="px-4 bg-secondary text-white fs-3">Ativo</th>
+				<th class="px-4 bg-secondary text-white fs-3">Data de Nascimento</th>
+				<th class="px-4 bg-secondary text-white fs-3">Opções</th>
+			</tr>
+		</thead>
+		<tbody>
+
+		</tbody>
+		</table>		
+	</main>
+        <div id="modal" class="modal" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header d-flex flex-column align-items-center">
+                        <h4 class="modal-title">Contato</h5>
+                    </div>
+                    <div class="modal-body">
+						<form id="form" class="mb-3">
+							<div class="mb-3">
+								<input type="text" id="nome" data-index="new" class="form-control" placeholder="Nome" required>	
+							</div>
+							<div class="mb-3">
+								<input type="text" id="telefone" class="form-control" onkeypress="formatter(this, patternNumber);" onblur="formatter(this, patternNumber);" placeholder="Telefone" required>
+							</div>
+							<div class="mb-3">
+								<input type="email" id="email" class="form-control" placeholder="Email" required>
+							</div>
+							<div class="mb-3">
+	                    		<input type="date" id="dataNsc" class="form-control" placeholder="Data de Nascimento" 
+	                    		onfocus="(this.type='date')" onblur="(this.type='text')" required>
+							</div>
+							<div class="d-flex flex-column align-items-center">
+	                    		<label class="form-label">
+	                        	<input type="checkbox" id="ativo">
+	                        	<span>Ativado</span>
+	                    		</label>
+	                    	</div>
+						</form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="Btn-Volta" data-bs-dismiss="modal" class="btn btn-secondary">Fechar</button>
+                        <button type="button" id="Btn-Confirma" class="btn btn-success">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-secondary" id="Cadastro">Cadastrar Contato</button>
+       <footer class="fixed-bottom bg-light">
+            <p class="text-center text-muted m-0">Por Gabriel Sena</p>
+       </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="src/scripts/formatter.js"></script>
+<script src="src/scripts/main.js"></script>
+</html>
